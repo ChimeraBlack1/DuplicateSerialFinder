@@ -35,12 +35,18 @@ while sheetNumberGood == False:
       print("Not the right number, try again...)>")
 
 sample = []
-array1 = []
 duplicates = []
-sampleSize = 100
+sampleSize = endofSheet
+SherpaReportSerialCol = 0
 
-# for i in range(0,sampleSize):
-# serial = prevSheet.cell_value(x,SherpaReportSerialCol)
+for x in range(1,sampleSize):
+  serial = thisSheet.cell_value(x,SherpaReportSerialCol)
+  if serial in sample:
+    duplicates.append(serial)
+  sample.append(serial)
+
+print(str(duplicates))
+
 
 #write to workbook
 workbook = xlwt.Workbook()
